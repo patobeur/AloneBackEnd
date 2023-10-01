@@ -7,7 +7,7 @@ const path = require("path");
 const { resourceLimits } = require("worker_threads");
 
 // db connect
-// connectDB();
+connectDB();
 
 // app
 const app = express();
