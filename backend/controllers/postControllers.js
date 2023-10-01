@@ -20,21 +20,27 @@ module.exports.setPost = async (req,res) => {
                 message:"Ajouter une contenu à votre message !"
             });
         }
+        console.log("envoi d'un post",req.body.message , req.body.author)
+        
         const post = await PostModel.create({
             message: req.body.message,
             author: req.body.author,
             stars: 0,
         });
+        console.log("ok")
         res.status(200).json(post);
-    } catch (e) {
-        res.status(400).json(e);
+    } catch (err) {
+        console.log("pas ok")
+        res.status(400).json(err);
     }
 }
 module.exports.editPost = async (req,res) => {
     try {
+        console.log("Édition d'un post byId:",req.params.id)
         const post = await PostModel.findById(req.params.id);
 
         if(!post){
+            console.log("ce Post n'existe pas !")
             res.status(400).json({message:"ce Post n'existe pas !"});
         }
         const updatePost = await PostModel.findByIdAndUpdate(
@@ -42,6 +48,7 @@ module.exports.editPost = async (req,res) => {
             req.body,
             {new:true}
         )
+        console.log("Édition réussie !")
         res.status(200).json(updatePost);
     } catch (e) {
         res.status(400).json(e);
