@@ -1,12 +1,12 @@
 import * as THREE from "three";
+// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// import Stats from 'three/addons/libs/stats.module.js';
+// import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 
 window.addEventListener("DOMContentLoaded", () => {
 	document.getElementById("erreur").remove();
 
-	// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-	// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-	// import Stats from 'three/addons/libs/stats.module.js';
-	// import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 	function addSpotLight(scene) {
 		// set up spot light + helper
 		const spotLight = new THREE.SpotLight(0xffffff, 1);
